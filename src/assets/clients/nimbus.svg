@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'>
+<rect width='64' height='64' rx='16' fill='url(#g3)'/>
+<path d='M20 38c0-5.5 4.5-10 10-10 1.2 0 2.3.2 3.4.6A8 8 0 0 1 44 36c0 4.4-3.6 8-8 8H24c-2.2 0-4-1.8-4-4Z' fill='white' fill-opacity='.95'/>
+<defs>
+<linearGradient id='g3' x1='0' y1='0' x2='64' y2='64'>
+<stop stop-color='#0EA5E9'/><stop offset='1' stop-color='#0284C7'/>
+</linearGradient>
+</defs>
+</svg>

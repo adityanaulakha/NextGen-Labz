@@ -5,6 +5,8 @@ import SplitText from '../components/SplitText'
 // Carousel image assets (only files that exist in /src/assets/carousel)
 import TechCarousel from '../components/TechCarousel';
 import ServicesPreview from '../components/ServicesPreview';
+import Testimonials from '../components/Testimonials';
+import FinalCTA from '../components/FinalCTA';
 
 function LandingPage() {
     const [subVisible, setSubVisible] = useState(false)
@@ -15,7 +17,7 @@ function LandingPage() {
 
     return (
         <>
-        <main className="px-4 sm:px-6 md:px-8 py-20 sm:py-24 lg:py-28 text-left text-neutral-200 max-w-7xl mx-auto">
+    <main id="main-content" className="px-4 sm:px-6 md:px-8 py-20 sm:py-24 lg:py-28 text-left text-neutral-200 max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
                 <div className="flex-1 max-w-4xl">
                             <SplitText
@@ -133,7 +135,7 @@ function LandingPage() {
                     </a>
                 </div>
             </div>
-    </section>
+        </section>
         
         {/* Technologies Carousel */}
         <section className="py-20 overflow-hidden">
@@ -146,8 +148,14 @@ function LandingPage() {
             <TechCarousel speed={55} />
         </section>
 
-        {/* Services Preview */}
-        <ServicesPreview />
+    {/* Services Preview */}
+    <ServicesPreview />
+
+    {/* Testimonials */}
+    <Testimonials />
+
+    {/* Final Call To Action */}
+    <FinalCTA />
         </>
     )
 }

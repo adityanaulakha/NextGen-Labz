@@ -110,9 +110,12 @@ export default function TechCarousel({ speed = 55 }) { // speed = pixels/second
 
   return (
     <div className="relative overflow-hidden" ref={containerRef}>
+      <div className="carousel-edge-left" aria-hidden="true" />
+      <div className="carousel-edge-right" aria-hidden="true" />
       <div
         ref={trackRef}
         role="list"
+        aria-label="Technology stack logos scrolling horizontally"
         className="flex items-center gap-8 sm:gap-10 lg:gap-12 px-4 sm:px-6 will-change-transform select-none"
         style={{ transform: 'translateX(0)' }}
       />

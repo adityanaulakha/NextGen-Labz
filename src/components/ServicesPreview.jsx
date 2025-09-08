@@ -115,7 +115,7 @@ export default function ServicesPreview() {
                     <p className="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed line-clamp-2">{cat.blurb}</p>
                   </div>
                 </div>
-                <ul className="relative mt-5 sm:mt-6 space-y-2 text-[11px] sm:text-xs font-medium text-neutral-300">
+                <ul className="relative mt-5 sm:mt-6 space-y-2 text-[11px] sm:text-xs font-medium text-neutral-300 flex-1">
                   {cat.items.map(item => (
                     <li key={item} className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 shadow shadow-purple-800/40" />
