@@ -17,10 +17,31 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 28s linear infinite;
 }
 
 /* Pause animation on hover */
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Slow down on very small screens for readability */
+@media (max-width: 480px) {
+  .animate-scroll {
+    animation-duration: 36s;
+  }
+}
+
+/* Speed up slightly on very large screens */
+@media (min-width: 1440px) {
+  .animate-scroll {
+    animation-duration: 24s;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll {
+    animation: none;
+  }
 }
