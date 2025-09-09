@@ -30,11 +30,11 @@ const Quote = () => {
 
   // Budget ranges in INR
   const budgetRanges = [
-    '₹50K - ₹1L',
-    '₹1L - ₹2.5L',
-    '₹2.5L - ₹5L',
-    '₹5L - ₹10L',
-    '₹10L+'
+    '₹10K - ₹25K',
+    '₹25K - ₹50K',
+    '₹50K - ₹75K',
+    '₹75K - ₹1L',
+    '₹1L+'
   ]
 
   const timelines = [
