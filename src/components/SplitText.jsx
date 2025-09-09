@@ -21,7 +21,11 @@ const SplitText = ({
   tag = 'p',
   onLetterAnimationComplete,
   highlightWords = [], // array of words to highlight (case-insensitive)
-  highlightClass = 'text-purple-500'
+  highlightClass = 'text-purple-500',
+  responsive = true,
+  playOnMount = false, // if true, animate immediately instead of using ScrollTrigger
+  stagger, // can be a number or a GSAP stagger object
+  preventFlash = true // render with visibility hidden until GSAP sets up
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
@@ -65,6 +69,8 @@ const SplitText = ({
     () => {
       if (!ref.current || !text || !fontsLoaded) return;
       const el = ref.current;
+  // Hide element immediately to prevent flash before split/animation sets initial state
+  gsap.set(el, { visibility: 'hidden' });
 
       if (el._rbsplitInstance) {
         try {
@@ -88,12 +94,13 @@ const SplitText = ({
       const start = `top ${startPct}%${sign}`;
 
       // Responsive adjustments
-      const effectiveSplitType = bp === 'xs' ? 'words' : splitType;
-      const effectiveDelay = bp === 'xs' ? Math.min(delay, 40) : delay;
-      const effectiveDuration = bp === 'xs' ? Math.min(duration, 0.5) : duration;
+      const useResponsive = responsive !== false;
+      const effectiveSplitType = useResponsive && bp === 'xs' ? 'words' : splitType;
+      const effectiveDelay = useResponsive && bp === 'xs' ? Math.min(delay, 40) : delay;
+      const effectiveDuration = useResponsive && bp === 'xs' ? Math.min(duration, 0.5) : duration;
       const effectiveFrom = {
         ...from,
-        y: typeof from.y === 'number' ? (bp === 'xs' ? Math.min(from.y, 30) : from.y) : from.y
+        y: typeof from.y === 'number' ? (useResponsive && bp === 'xs' ? Math.min(from.y, 30) : from.y) : from.y
       };
       const effectiveTo = { ...to };
 
@@ -126,29 +133,35 @@ const SplitText = ({
             })
           }
           assignTargets(self);
-          return gsap.fromTo(
-            targets,
-            { ...effectiveFrom },
-            {
-              ...effectiveTo,
-              duration: effectiveDuration,
-              ease,
-              stagger: effectiveDelay / 1000,
-              scrollTrigger: {
-                trigger: el,
-                start,
-                once: true,
-                fastScrollEnd: true,
-                anticipatePin: 0.4
-              },
-              onComplete: () => {
-                animationCompletedRef.current = true;
-                onLetterAnimationComplete?.();
-              },
-              willChange: 'transform, opacity',
-              force3D: true
-            }
-          );
+          // Pre-set initial styles so nothing flashes before the tween or scroll trigger
+          gsap.set(targets, { ...effectiveFrom });
+          const tweenConfig = {
+            ...effectiveTo,
+            duration: effectiveDuration,
+            ease,
+            stagger: stagger ?? effectiveDelay / 1000,
+            onStart: () => {
+              gsap.set(el, { visibility: 'visible' });
+            },
+            onComplete: () => {
+              animationCompletedRef.current = true;
+              onLetterAnimationComplete?.();
+            },
+            willChange: 'transform, opacity',
+            force3D: true,
+            immediateRender: false
+          };
+          if (!playOnMount) {
+            tweenConfig.scrollTrigger = {
+              trigger: el,
+              start,
+              once: true,
+              fastScrollEnd: true,
+              anticipatePin: 0.4,
+              immediateRender: false
+            };
+          }
+          return gsap.fromTo(targets, { ...effectiveFrom }, tweenConfig);
         }
       });
       el._rbsplitInstance = splitInstance;
@@ -191,7 +204,8 @@ const SplitText = ({
       textAlign,
       wordWrap: 'break-word',
       overflowWrap: 'anywhere',
-      willChange: 'transform, opacity'
+  willChange: 'transform, opacity',
+  visibility: preventFlash ? 'hidden' : undefined
     };
     const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
     switch (tag) {

@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import SplitText from '../components/SplitText'
 import DarkVeil from '../components/DarkVeil'
 // Import PDF brochure
@@ -60,18 +59,28 @@ function LandingPage() {
                             textAlign="center"
                             tag="h1"
                             onLetterAnimationComplete={handleAnimationComplete}
-                            highlightWords={['Crafting', 'Digital']}
-                            highlightClass="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse"
+                            highlightWords={[]}
+                            highlightClass=""
+                            responsive={false}
                         />
+                        {/* Reserve exact space for subtitle to avoid layout shift when it appears */}
+                        {!subVisible && (
+                            <h2
+                                aria-hidden="true"
+                                className="text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold px-2 opacity-0 pointer-events-none select-none"
+                            >
+                                Design. Develop. Iterate. Repeat.
+                            </h2>
+                        )}
                         {subVisible && (
                             <SplitText
                                 text="Design. Develop. Iterate. Repeat."
                                 className="text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-300 drop-shadow-lg px-2"
-                                delay={60}
-                                duration={0.45}
-                                ease="power3.out"
+                                delay={40}
+                                duration={1.15}
+                                ease="power2.out"
                                 splitType="words"
-                                from={{ opacity: 0, y: 30 }}
+                                from={{ opacity: 0, y: 24 }}
                                 to={{ opacity: 1, y: 0 }}
                                 threshold={0.2}
                                 rootMargin="-100px"
@@ -79,6 +88,7 @@ function LandingPage() {
                                 tag="h2"
                                 highlightWords={['Design.', 'Develop.', 'Iterate.', 'Repeat.']}
                                 highlightClass="bg-gradient-to-r from-purple-300 via-purple-400 to-pink-300 bg-clip-text text-transparent drop-shadow-lg"
+                                stagger={{ each: 0.06, from: 'start' }}
                             />
                         )}
                         
