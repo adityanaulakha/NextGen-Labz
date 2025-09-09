@@ -26,6 +26,30 @@ const SplitText = ({
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [bp, setBp] = useState('md'); // responsive breakpoint key
+
+  // Determine breakpoint and update on resize
+  useEffect(() => {
+    const computeBp = () => {
+      const w = typeof window !== 'undefined' ? window.innerWidth : 1024;
+      if (w < 480) return 'xs';
+      if (w < 640) return 'sm';
+      if (w < 1024) return 'md';
+      if (w < 1280) return 'lg';
+      return 'xl';
+    };
+    setBp(computeBp());
+    let raf;
+    const onResize = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setBp(computeBp()));
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   useEffect(() => {
     if (document.fonts.status === 'loaded') {
@@ -63,6 +87,16 @@ const SplitText = ({
             : `+=${marginValue}${marginUnit}`;
       const start = `top ${startPct}%${sign}`;
 
+      // Responsive adjustments
+      const effectiveSplitType = bp === 'xs' ? 'words' : splitType;
+      const effectiveDelay = bp === 'xs' ? Math.min(delay, 40) : delay;
+      const effectiveDuration = bp === 'xs' ? Math.min(duration, 0.5) : duration;
+      const effectiveFrom = {
+        ...from,
+        y: typeof from.y === 'number' ? (bp === 'xs' ? Math.min(from.y, 30) : from.y) : from.y
+      };
+      const effectiveTo = { ...to };
+
       let targets;
       const assignTargets = self => {
         if (splitType.includes('chars') && self.chars.length) targets = self.chars;
@@ -72,9 +106,9 @@ const SplitText = ({
       };
 
       const splitInstance = new GSAPSplitText(el, {
-        type: splitType,
+        type: effectiveSplitType,
         smartWrap: true,
-        autoSplit: splitType === 'lines',
+        autoSplit: effectiveSplitType === 'lines',
         linesClass: 'split-line',
         wordsClass: 'split-word',
         charsClass: 'split-char',
@@ -94,12 +128,12 @@ const SplitText = ({
           assignTargets(self);
           return gsap.fromTo(
             targets,
-            { ...from },
+            { ...effectiveFrom },
             {
-              ...to,
-              duration,
+              ...effectiveTo,
+              duration: effectiveDuration,
               ease,
-              stagger: delay / 1000,
+              stagger: effectiveDelay / 1000,
               scrollTrigger: {
                 trigger: el,
                 start,
@@ -132,7 +166,7 @@ const SplitText = ({
       };
     },
     {
-      dependencies: [
+    dependencies: [
         text,
         delay,
         duration,
@@ -145,7 +179,8 @@ const SplitText = ({
         fontsLoaded,
   onLetterAnimationComplete,
   highlightWords.join(','),
-  highlightClass
+  highlightClass,
+  bp
       ],
       scope: ref
     }
@@ -155,6 +190,7 @@ const SplitText = ({
     const style = {
       textAlign,
       wordWrap: 'break-word',
+      overflowWrap: 'anywhere',
       willChange: 'transform, opacity'
     };
     const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;

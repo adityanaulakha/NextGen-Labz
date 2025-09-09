@@ -20,17 +20,18 @@ function LandingPage() {
 
     return (
         <>
-        <div className="w-full h-screen overflow-hidden relative bg-black">
+    <div className="w-full h-[100svh] sm:h-screen overflow-hidden relative bg-black">
             {/* DarkVeil Background - Full Coverage */}
-            <div className="absolute inset-0 w-full h-full z-0" style={{ width: '100vw', height: '100vh' }}>
+        <div className="absolute inset-0 w-full h-full z-0">
+                {/* Slightly lighter effect on mobile for performance */}
                 <DarkVeil 
                     hueShift={260}
-                    noiseIntensity={0.02}
-                    scanlineIntensity={0.02}
-                    speed={0.2}
-                    scanlineFrequency={0.3}
-                    warpAmount={0.05}
-                    resolutionScale={1.0}
+                    noiseIntensity={0.015}
+                    scanlineIntensity={0.015}
+                    speed={0.18}
+                    scanlineFrequency={0.25}
+                    warpAmount={0.04}
+            resolutionScale={undefined}
                 />
             </div>
             
@@ -43,11 +44,11 @@ function LandingPage() {
             
             {/* Hero Content - Perfectly Centered */}
             <div className="relative z-10 flex items-center justify-center w-full h-full">
-                <div className="px-4 sm:px-6 md:px-8 text-center max-w-6xl mx-auto w-full">
-                    <div className="space-y-8 sm:space-y-10">
+                <div className="px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 text-center max-w-6xl mx-auto w-full">
+                    <div className="space-y-6 sm:space-y-8">
                         <SplitText
                             text="Crafting Digital Experiences"
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full text-white drop-shadow-2xl"
+                            className="text-[9vw] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full text-white drop-shadow-2xl px-1"
                             delay={80}
                             duration={0.55}
                             ease="power3.out"
@@ -65,7 +66,7 @@ function LandingPage() {
                         {subVisible && (
                             <SplitText
                                 text="Design. Develop. Iterate. Repeat."
-                                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-300 drop-shadow-lg"
+                                className="text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-300 drop-shadow-lg px-2"
                                 delay={60}
                                 duration={0.45}
                                 ease="power3.out"
@@ -81,24 +82,24 @@ function LandingPage() {
                             />
                         )}
                         
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-neutral-200 drop-shadow-md">
+                        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 px-2">
+                            <p className="text-base sm:text-xl lg:text-2xl leading-relaxed text-neutral-200 drop-shadow-md">
                                 We help <span className="text-purple-300 font-semibold">brands and startups</span> turn <span className="text-pink-300 font-semibold">ambitious ideas</span> into beautiful, performant products. From <span className="text-purple-400 font-semibold">rapid prototypes</span> to <span className="text-pink-400 font-semibold">full-scale platforms</span>, our multidisciplinary team blends strategy, design, and engineering to ship work that matters.
                             </p>
-                            <p className="text-base sm:text-lg text-neutral-400 drop-shadow-sm">
+                            <p className="text-sm sm:text-lg text-neutral-400 drop-shadow-sm">
                                 Need a partner for your next launch or a fresh iteration of your existing product? Let's <span className="text-purple-300 font-medium">collaborate</span> and build something <span className="text-pink-300 font-medium">users love</span>.
                             </p>
                         </div>
                         
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12 sm:mt-16">
-                            <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-10 py-5 text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mt-8 sm:mt-12">
+                            <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-7 sm:px-10 py-4 sm:py-5 text-sm sm:text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
                                 Get a Quote
                             </a>
                             <a 
                                 href={brochurePdf} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded-full border-2 border-neutral-600 hover:border-purple-400 hover:text-white bg-black/30 backdrop-blur-sm px-10 py-5 text-base font-semibold text-neutral-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:-translate-y-1"
+                                className="inline-flex items-center justify-center rounded-full border-2 border-neutral-600 hover:border-purple-400 hover:text-white bg-black/30 backdrop-blur-sm px-7 sm:px-10 py-4 sm:py-5 text-sm sm:text-base font-semibold text-neutral-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:-translate-y-1"
                             >
                                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

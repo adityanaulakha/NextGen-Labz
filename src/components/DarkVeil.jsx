@@ -83,6 +83,7 @@ export default function DarkVeil({
   resolutionScale = 1
 }) {
   const ref = useRef(null);
+  const roRef = useRef(null);
   useEffect(() => {
     const canvas = ref.current;
     const parent = canvas.parentElement;
@@ -115,13 +116,30 @@ export default function DarkVeil({
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
-      const w = parent.clientWidth;
-      const h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
+      const rect = parent?.getBoundingClientRect?.();
+      const w = Math.max(1, Math.floor(rect?.width || parent?.clientWidth || window.innerWidth || 1));
+      const h = Math.max(1, Math.floor(rect?.height || parent?.clientHeight || window.innerHeight || 1));
+      // Auto scale down a bit on small screens for perf if caller didn't override
+      const autoScale = (resolutionScale ?? 1) !== undefined ? resolutionScale : 1;
+      const scale = resolutionScale !== undefined ? resolutionScale : (w < 640 ? 0.75 : 1);
+      renderer.setSize(w * scale, h * scale);
       program.uniforms.uResolution.value.set(w, h);
     };
 
     window.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', resize);
+    // Track DPR changes (zoom/monitor switch)
+    const updateDpr = () => {
+      renderer.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      resize();
+    };
+    window.addEventListener('resize', updateDpr);
+
+    // Use ResizeObserver to catch parent size changes
+    if ('ResizeObserver' in window && parent) {
+      roRef.current = new ResizeObserver(() => requestAnimationFrame(resize));
+      roRef.current.observe(parent);
+    }
     resize();
 
     const start = performance.now();
@@ -143,7 +161,13 @@ export default function DarkVeil({
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('orientationchange', resize);
+      window.removeEventListener('resize', updateDpr);
+      if (roRef.current) {
+        roRef.current.disconnect();
+        roRef.current = null;
+      }
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
-  return <canvas ref={ref} className="w-full h-full block absolute inset-0" style={{ width: '100%', height: '100%' }} />;
+  return <canvas ref={ref} className="w-full h-full block absolute inset-0" style={{ width: '100%', height: '100%' }} aria-hidden="true" />;
 }
