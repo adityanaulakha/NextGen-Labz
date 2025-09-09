@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Navbar() {
   const [open, setOpen] = useState(false)
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-[#171717]/90 backdrop-blur-xl border-b border-neutral-800/60 supports-[backdrop-filter]:bg-[#171717]/75">
+    <header className="fixed top-0 inset-x-0 z-50 bg-transparent backdrop-blur-sm">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8" aria-label="Main">
         <div className="flex h-16 sm:h-18 md:h-20 items-center justify-between">
           <Link to="/" className="flex items-center gap-2 shrink-0 group">
@@ -31,7 +31,7 @@ function Navbar() {
           </button>
         </div>
       </nav>
-      <div id="mobile-nav" className={`md:hidden absolute inset-x-0 top-full bg-[#171717]/95 backdrop-blur-xl border-b border-neutral-800/60 overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div id="mobile-nav" className={`md:hidden absolute inset-x-0 top-full bg-black/80 backdrop-blur-xl overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
           <ul className="flex flex-col gap-1.5 pb-4 pt-2 text-[13px] font-medium text-neutral-300">
             <li><Link onClick={() => setOpen(false)} to="/" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">Home</Link></li>

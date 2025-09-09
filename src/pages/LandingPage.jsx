@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import SplitText from '../components/SplitText'
+import DarkVeil from '../components/DarkVeil'
 
 // Carousel image assets (only files that exist in /src/assets/carousel)
 import TechCarousel from '../components/TechCarousel';
@@ -17,69 +18,103 @@ function LandingPage() {
 
     return (
         <>
-        <div className="w-full min-h-screen overflow-hidden">
-        <main id="main-content" className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-28 text-left text-neutral-200 max-w-7xl mx-auto w-full">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16 w-full">
-                <div className="flex-1 max-w-full lg:max-w-4xl w-full">
+        <div className="w-full h-screen overflow-hidden relative bg-black">
+            {/* DarkVeil Background - Full Coverage */}
+            <div className="absolute inset-0 w-full h-full z-0" style={{ width: '100vw', height: '100vh' }}>
+                <DarkVeil 
+                    hueShift={260}
+                    noiseIntensity={0.02}
+                    scanlineIntensity={0.02}
+                    speed={0.2}
+                    scanlineFrequency={0.3}
+                    warpAmount={0.05}
+                    resolutionScale={1.0}
+                />
+            </div>
+            
+            {/* Additional Background Overlays for Better Visual Depth */}
+            <div className="absolute inset-0 w-full h-full z-1">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/30" />
+                <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-purple-900/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-purple-900/15 to-transparent" />
+            </div>
+            
+            {/* Hero Content - Perfectly Centered */}
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
+                <div className="px-4 sm:px-6 md:px-8 text-center max-w-6xl mx-auto w-full">
+                    <div className="space-y-8 sm:space-y-10">
+                        <SplitText
+                            text="Crafting Digital Experiences"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full text-white drop-shadow-2xl"
+                            delay={80}
+                            duration={0.55}
+                            ease="power3.out"
+                            splitType="chars"
+                            from={{ opacity: 0, y: 60 }}
+                            to={{ opacity: 1, y: 0 }}
+                            threshold={0.15}
+                            rootMargin="-120px"
+                            textAlign="center"
+                            tag="h1"
+                            onLetterAnimationComplete={handleAnimationComplete}
+                            highlightWords={['Crafting', 'Digital']}
+                            highlightClass="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse"
+                        />
+                        {subVisible && (
                             <SplitText
-                                text="Crafting Digital Experiences"
-                                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full"
-                                delay={80}
-                                duration={0.55}
+                                text="Design. Develop. Iterate. Repeat."
+                                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-300 drop-shadow-lg"
+                                delay={60}
+                                duration={0.45}
                                 ease="power3.out"
-                                splitType="chars"
-                                from={{ opacity: 0, y: 60 }}
+                                splitType="words"
+                                from={{ opacity: 0, y: 30 }}
                                 to={{ opacity: 1, y: 0 }}
-                                threshold={0.15}
-                                rootMargin="-120px"
-                                textAlign="left"
-                                tag="h1"
-                                onLetterAnimationComplete={handleAnimationComplete}
-                                highlightWords={['Digital']}
-                                highlightClass="text-purple-500"
+                                threshold={0.2}
+                                rootMargin="-100px"
+                                textAlign="center"
+                                tag="h2"
+                                highlightWords={['Design.', 'Develop.', 'Iterate.', 'Repeat.']}
+                                highlightClass="bg-gradient-to-r from-purple-300 via-purple-400 to-pink-300 bg-clip-text text-transparent drop-shadow-lg"
                             />
-                            {subVisible && (
-                                <SplitText
-                                    text="Design. Develop. Iterate. Repeat."
-                                    className="mt-4 sm:mt-6 text-lg sm:text-2xl md:text-3xl font-medium text-neutral-400"
-                                    delay={60}
-                                    duration={0.45}
-                                    ease="power3.out"
-                                    splitType="words"
-                                    from={{ opacity: 0, y: 30 }}
-                                    to={{ opacity: 1, y: 0 }}
-                                    threshold={0.2}
-                                    rootMargin="-100px"
-                                    textAlign="left"
-                                    tag="h2"
-                                    highlightWords={['Design.', 'Iterate.']}
-                                    highlightClass="text-purple-400"
-                                />
-                            )}
-                    <p className="mt-6 sm:mt-8 text-base sm:text-lg leading-relaxed text-neutral-400 max-w-2xl">
-                        We help brands and startups turn ambitious ideas into beautiful, performant products. From rapid prototypes to full-scale platforms, our multidisciplinary team blends strategy, design, and engineering to ship work that matters.
-                    </p>
-                    <p className="mt-3 sm:mt-4 text-sm sm:text-base text-neutral-500 max-w-2xl">
-                        Need a partner for your next launch or a fresh iteration of your existing product? Let's collaborate and build something users love.
-                    </p>
-                    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md">
-                        <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-8 py-3 text-sm font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#171717]">Get a Quote</a>
-                        <a href="#projects" className="inline-flex items-center justify-center rounded-full border border-neutral-700 hover:border-purple-500 hover:text-white px-6 sm:px-8 py-3 text-sm font-medium text-neutral-300 transition focus:outline-none focus:ring-2 focus:ring-purple-500/60">View Projects</a>
-                    </div>
-                </div>
-                {/* Lottie animation */}
-                <div className="w-full lg:w-[400px] xl:w-[450px] flex justify-center lg:justify-end mt-10 lg:mt-0 flex-shrink-0">
-                    <div className="w-56 sm:w-64 md:w-72 lg:w-full aspect-square max-w-full">
-                        <DotLottieReact
-                            src="https://lottie.host/2bd3b91a-1920-4ca4-9491-3d469030b5cd/FK5Z2r3aZI.lottie"
-                            loop
-                            autoplay
-                            className="w-full h-full"
-                            />
+                        )}
+                        
+                        <div className="max-w-4xl mx-auto space-y-6">
+                            <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-neutral-200 drop-shadow-md">
+                                We help <span className="text-purple-300 font-semibold">brands and startups</span> turn <span className="text-pink-300 font-semibold">ambitious ideas</span> into beautiful, performant products. From <span className="text-purple-400 font-semibold">rapid prototypes</span> to <span className="text-pink-400 font-semibold">full-scale platforms</span>, our multidisciplinary team blends strategy, design, and engineering to ship work that matters.
+                            </p>
+                            <p className="text-base sm:text-lg text-neutral-400 drop-shadow-sm">
+                                Need a partner for your next launch or a fresh iteration of your existing product? Let's <span className="text-purple-300 font-medium">collaborate</span> and build something <span className="text-pink-300 font-medium">users love</span>.
+                            </p>
+                        </div>
+                        
+                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12 sm:mt-16">
+                            <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-10 py-5 text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
+                                Get a Quote
+                            </a>
+                            <a href="#projects" className="inline-flex items-center justify-center rounded-full border-2 border-neutral-600 hover:border-purple-400 hover:text-white bg-black/30 backdrop-blur-sm px-10 py-5 text-base font-semibold text-neutral-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:-translate-y-1">
+                                View Projects
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+            
+            {/* Temporarily commented out Lottie animation */}
+            {/* 
+            <div className="w-full lg:w-[400px] xl:w-[450px] flex justify-center lg:justify-end mt-10 lg:mt-0 flex-shrink-0">
+                <div className="w-56 sm:w-64 md:w-72 lg:w-full aspect-square max-w-full">
+                    <DotLottieReact
+                        src="https://lottie.host/2bd3b91a-1920-4ca4-9491-3d469030b5cd/FK5Z2r3aZI.lottie"
+                        loop
+                        autoplay
+                        className="w-full h-full"
+                        />
+                </div>
+            </div>
+            */}
+        </div>
+
         {/* Why Choose Us Section */}
         <section id="why-us" className="relative py-20 sm:py-24 lg:py-32 w-full overflow-hidden">
             {/* layered background */}
@@ -157,7 +192,6 @@ function LandingPage() {
 
         {/* Final Call To Action */}
         <FinalCTA />
-        </div>
         </>
     )
 }
