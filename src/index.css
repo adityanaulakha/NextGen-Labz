@@ -4,15 +4,25 @@ body {
     font-family: Poppins, sans-serif;
     background-color: #171717;
     color: #ffffff;
+    overflow-x: hidden; /* Prevent accidental horizontal scroll on small devices */
+}
+
+/* Ensure all elements respect viewport bounds */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Fix for potential wide elements */
+html {
+  overflow-x: hidden;
 }
 
 /* Global focus visibility enhancement */
 :focus-visible {
   outline: 2px solid #A855F7;
   outline-offset: 2px;
-}
-
-/* Skip link */
+}/* Skip link */
 .skip-link {
   position: absolute;
   top: -200px;

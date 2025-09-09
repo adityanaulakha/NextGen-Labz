@@ -58,14 +58,14 @@ export default function TechCarousel({ speed = 55 }) { // speed = pixels/second
       const buildSet = (dup = false) => {
         techStack.forEach((t, i) => {
           const wrapper = document.createElement('div');
-          wrapper.className = 'group flex flex-col items-center gap-2 sm:gap-3 min-w-[70px] sm:min-w-[80px]';
+          wrapper.className = 'group flex flex-col items-center gap-1.5 sm:gap-3 min-w-[60px] sm:min-w-[80px]';
           wrapper.setAttribute('role', 'listitem');
           if (dup) wrapper.setAttribute('aria-hidden', 'true');
           wrapper.innerHTML = `
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${t.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 ${t.color.includes('from-white') ? 'ring-1 ring-neutral-200/40' : ''}">
-              <img src="${t.src}" alt="${dup ? '' : t.name}" ${dup ? 'aria-hidden="true"' : ''} class="w-8 h-8 object-contain" loading="lazy" />
+            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${t.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 ${t.color.includes('from-white') ? 'ring-1 ring-neutral-200/40' : ''}">
+              <img src="${t.src}" alt="${dup ? '' : t.name}" ${dup ? 'aria-hidden="true"' : ''} class="w-6 h-6 sm:w-8 sm:h-8 object-contain" loading="lazy" />
             </div>
-            <span class="text-[10px] sm:text-xs text-neutral-400 group-hover:text-white transition-colors text-center font-medium tracking-wide">${t.name}</span>
+            <span class="text-[9px] sm:text-xs text-neutral-400 group-hover:text-white transition-colors text-center font-medium tracking-wide">${t.name}</span>
           `;
           track.appendChild(wrapper);
         });
@@ -109,14 +109,14 @@ export default function TechCarousel({ speed = 55 }) { // speed = pixels/second
   }, [speed]);
 
   return (
-    <div className="relative overflow-hidden" ref={containerRef}>
+    <div className="relative w-full max-w-full overflow-hidden" ref={containerRef}>
       <div className="carousel-edge-left" aria-hidden="true" />
       <div className="carousel-edge-right" aria-hidden="true" />
       <div
         ref={trackRef}
         role="list"
         aria-label="Technology stack logos scrolling horizontally"
-        className="flex items-center gap-8 sm:gap-10 lg:gap-12 px-4 sm:px-6 will-change-transform select-none"
+        className="flex items-center gap-6 sm:gap-8 lg:gap-10 px-2 sm:px-4 will-change-transform select-none max-w-full"
         style={{ transform: 'translateX(0)' }}
       />
     </div>

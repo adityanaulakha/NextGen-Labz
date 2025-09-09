@@ -1,53 +1,99 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Footer() {
+	const [email, setEmail] = useState('')
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [submitStatus, setSubmitStatus] = useState(null)
+
+	const handleEmailSubmit = async (e) => {
+		e.preventDefault()
+		setIsSubmitting(true)
+		setSubmitStatus(null)
+
+		// Simulate API call with a delay
+		setTimeout(() => {
+			setSubmitStatus('success')
+			setEmail('')
+			setIsSubmitting(false)
+		}, 1500)
+	}
+
 	const year = new Date().getFullYear()
 	return (
 		<footer className="mt-32 border-t border-neutral-800/70 bg-[#141414] text-neutral-400">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-				<div className="grid gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-4">
+				<div className="grid gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-3">
 					<div>
 						<img src="/Logo-White1.png" alt="NextGen Labz Logo" className="h-8 sm:h-9 w-auto transition-transform group-hover:scale-[1.03]" />
 						<p className="mt-4 text-sm leading-relaxed max-w-xs">Crafting reliable, scalable & user‑obsessed digital products. Strategy → design → build → iterate.</p>
 						<div className="mt-5 flex gap-3">
-							<a href="#" aria-label="Twitter" className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-neutral-800/70 hover:bg-neutral-700 text-neutral-300 hover:text-white transition" rel="noopener noreferrer">
-								<svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.57-2.46.67a4.28 4.28 0 0 0 1.88-2.37 8.56 8.56 0 0 1-2.72 1.05 4.26 4.26 0 0 0-7.3 3.88A12.1 12.1 0 0 1 3.16 4.9a4.25 4.25 0 0 0 1.32 5.68 4.2 4.2 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.17 4.3 4.3 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54a12.07 12.07 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.7 8.7 0 0 0 24 5.3a8.52 8.52 0 0 1-2.54.7Z" /></svg>
-							</a>
-							<a href="#" aria-label="GitHub" className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-neutral-800/70 hover:bg-neutral-700 text-neutral-300 hover:text-white transition" rel="noopener noreferrer">
-								<svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.74 1.27 3.4.97.1-.75.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.67 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 2.87-.39c.97 0 1.94.13 2.86.39 2.2-1.48 3.15-1.17 3.15-1.17.63 1.59.24 2.76.12 3.05.73.8 1.16 1.82 1.16 3.07 0 4.4-2.69 5.38-5.25 5.66.42.36.8 1.06.8 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" clipRule="evenodd"/></svg>
-							</a>
-							<a href="#" aria-label="LinkedIn" className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-neutral-800/70 hover:bg-neutral-700 text-neutral-300 hover:text-white transition" rel="noopener noreferrer">
-								<svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5ZM3 9.75h3.96V21H3V9.75Zm7.41 0H14v1.53h.05c.55-1.04 1.89-2.13 3.89-2.13 4.16 0 4.93 2.74 4.93 6.3V21h-3.96v-4.77c0-1.14-.02-2.6-1.59-2.6-1.6 0-1.84 1.24-1.84 2.52V21h-3.96V9.75Z"/></svg>
+							<a href="https://www.instagram.com/nextgen.labz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 text-purple-300 hover:text-white transition-all duration-200">
+								<svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+									<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+								</svg>
 							</a>
 						</div>
 					</div>
 
 					<div>
-						<h4 className="text-neutral-200 font-medium tracking-wide text-sm">PRODUCT</h4>
+						<h4 className="text-neutral-200 font-medium tracking-wide text-sm">PAGES</h4>
 						<ul className="mt-4 space-y-2 text-sm">
-							<li><a href="#projects" className="hover:text-white transition-colors">Projects</a></li>
-							<li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-							<li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-							<li><a href="#quote" className="hover:text-white transition-colors">Get a Quote</a></li>
-						</ul>
-					</div>
-
-						<div>
-						<h4 className="text-neutral-200 font-medium tracking-wide text-sm">RESOURCES</h4>
-						<ul className="mt-4 space-y-2 text-sm">
-							<li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-							<li><a href="#" className="hover:text-white transition-colors">Case Studies</a></li>
-							<li><a href="#" className="hover:text-white transition-colors">Brand Assets</a></li>
-							<li><a href="#" className="hover:text-white transition-colors">Support</a></li>
+							<li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+							<li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+							<li><a href="/about" className="hover:text-white transition-colors">About</a></li>
+							<li><a href="/quote" className="hover:text-white transition-colors">Get Quote</a></li>
 						</ul>
 					</div>
 
 					<div>
 						<h4 className="text-neutral-200 font-medium tracking-wide text-sm">STAY UPDATED</h4>
 						<p className="mt-4 text-sm max-w-xs">Join our monthly digest of product insights & release notes. No spam.</p>
-						<form onSubmit={e=>e.preventDefault()} className="mt-5 flex flex-col sm:flex-row gap-3">
-							<input type="email" required placeholder="Email address" className="flex-1 rounded-md bg-neutral-900/60 border border-neutral-700/70 px-3 py-2 text-sm placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-neutral-500" />
-							<button className="inline-flex justify-center rounded-md bg-purple-600 hover:bg-purple-500 px-5 py-2 text-sm font-medium text-white shadow shadow-purple-700/30 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#141414] transition">Subscribe</button>
+						
+						{submitStatus === 'success' && (
+							<div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-md">
+								<div className="flex items-center gap-2 text-green-400">
+									<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+									</svg>
+									<span className="text-sm font-medium">Subscribed successfully!</span>
+								</div>
+							</div>
+						)}
+
+						{submitStatus === 'error' && (
+							<div className="mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-md">
+								<div className="flex items-center gap-2 text-red-400">
+									<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
+									</svg>
+									<span className="text-sm font-medium">Something went wrong</span>
+								</div>
+							</div>
+						)}
+
+						<form onSubmit={handleEmailSubmit} className="mt-5 flex flex-col sm:flex-row gap-3">
+							<input 
+								type="email" 
+								required 
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								placeholder="Email address" 
+								disabled={isSubmitting}
+								className="flex-1 rounded-md bg-neutral-900/60 border border-neutral-700/70 px-3 py-2 text-sm placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-neutral-500 disabled:opacity-50" 
+							/>
+							<button 
+								type="submit"
+								disabled={isSubmitting}
+								className="inline-flex justify-center items-center rounded-md bg-purple-600 hover:bg-purple-500 disabled:opacity-50 disabled:cursor-not-allowed px-5 py-2 text-sm font-medium text-white shadow shadow-purple-700/30 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#141414] transition"
+							>
+								{isSubmitting ? (
+									<svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+									</svg>
+								) : (
+									'Subscribe'
+								)}
+							</button>
 						</form>
 						<p className="mt-2 text-[11px] text-neutral-500">We respect your privacy. Unsubscribe anytime.</p>
 					</div>

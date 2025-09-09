@@ -17,12 +17,13 @@ function LandingPage() {
 
     return (
         <>
-    <main id="main-content" className="px-4 sm:px-6 md:px-8 py-20 sm:py-24 lg:py-28 text-left text-neutral-200 max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-                <div className="flex-1 max-w-4xl">
+        <div className="w-full min-h-screen overflow-hidden">
+        <main id="main-content" className="px-4 sm:px-6 md:px-8 py-16 sm:py-24 lg:py-28 text-left text-neutral-200 max-w-7xl mx-auto w-full">
+            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16 w-full">
+                <div className="flex-1 max-w-full lg:max-w-4xl w-full">
                             <SplitText
                                 text="Crafting Digital Experiences"
-                                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight"
+                                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full"
                                 delay={80}
                                 duration={0.55}
                                 ease="power3.out"
@@ -40,7 +41,7 @@ function LandingPage() {
                             {subVisible && (
                                 <SplitText
                                     text="Design. Develop. Iterate. Repeat."
-                                    className="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-neutral-400"
+                                    className="mt-4 sm:mt-6 text-lg sm:text-2xl md:text-3xl font-medium text-neutral-400"
                                     delay={60}
                                     duration={0.45}
                                     ease="power3.out"
@@ -61,14 +62,14 @@ function LandingPage() {
                     <p className="mt-3 sm:mt-4 text-sm sm:text-base text-neutral-500 max-w-2xl">
                         Need a partner for your next launch or a fresh iteration of your existing product? Let's collaborate and build something users love.
                     </p>
-                    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md">
                         <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-8 py-3 text-sm font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#171717]">Get a Quote</a>
                         <a href="#projects" className="inline-flex items-center justify-center rounded-full border border-neutral-700 hover:border-purple-500 hover:text-white px-6 sm:px-8 py-3 text-sm font-medium text-neutral-300 transition focus:outline-none focus:ring-2 focus:ring-purple-500/60">View Projects</a>
                     </div>
                 </div>
                 {/* Lottie animation */}
-                <div className="w-full lg:w-[420px] xl:w-[480px] flex justify-center lg:justify-end mt-10 lg:mt-0">
-                    <div className="w-60 sm:w-72 md:w-80 lg:w-full aspect-square">
+                <div className="w-full lg:w-[400px] xl:w-[450px] flex justify-center lg:justify-end mt-10 lg:mt-0 flex-shrink-0">
+                    <div className="w-56 sm:w-64 md:w-72 lg:w-full aspect-square max-w-full">
                         <DotLottieReact
                             src="https://lottie.host/2bd3b91a-1920-4ca4-9491-3d469030b5cd/FK5Z2r3aZI.lottie"
                             loop
@@ -80,21 +81,21 @@ function LandingPage() {
             </div>
         </main>
         {/* Why Choose Us Section */}
-    <section id="why-us" className="relative py-20 sm:py-24 lg:py-32">
+        <section id="why-us" className="relative py-20 sm:py-24 lg:py-32 w-full overflow-hidden">
             {/* layered background */}
             <div className="absolute inset-0 -z-20 bg-[#131313]" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-900/10 via-transparent to-purple-900/5" />
             <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:70px_70px]" />
-            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[780px] h-[780px] rounded-full bg-purple-600/15 blur-3xl opacity-40" />
-            <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative">
-                <div className="mb-16 sm:mb-20 max-w-4xl">
+            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] lg:w-[780px] lg:h-[780px] rounded-full bg-purple-600/15 blur-3xl opacity-40" />
+            <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative w-full">
+                <div className="mb-16 sm:mb-20 max-w-4xl w-full">
                     <span className="inline-block text-[11px] font-medium tracking-[0.35em] uppercase text-purple-300/70 mb-4 sm:mb-6">Our Edge</span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight break-words">
                         <span className="bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">Why choose us</span>
                     </h2>
                     <p className="mt-4 sm:mt-6 text-neutral-400 text-sm sm:text-base lg:text-lg leading-relaxed">We blend strategy, design craft, and engineering depth into a single velocity layer. Lean squads, senior ownership, and obsessive detail mean you ship faster—with quality that compounds.</p>
                 </div>
-                <div className="grid gap-6 sm:gap-8 md:gap-10 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full">
                     {[
                         {title:'Expert ownership',desc:'No junior pass‑offs or blind spots—just accountable specialists who understand product nuance.'},
                         {title:'Fast iteration cadence',desc:'Prototype → validate → refine. Lean cycles reduce waste and surface signal earlier.'},
@@ -127,9 +128,9 @@ function LandingPage() {
                         </div>
                     ))}
                 </div>
-                <div className="mt-16 sm:mt-20 flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center justify-between">
+                <div className="mt-16 sm:mt-20 flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center justify-between w-full">
                     <p className="text-xs sm:text-sm text-neutral-500 max-w-xl">Not just a feature factory. We partner to shape, pressure test, and accelerate what you bring to market.</p>
-                    <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-7 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#131313] self-start lg:self-auto">
+                    <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-7 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#131313] self-start lg:self-auto flex-shrink-0">
                         Start a conversation
                         <svg className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                     </a>
@@ -138,24 +139,25 @@ function LandingPage() {
         </section>
         
         {/* Technologies Carousel */}
-        <section className="py-20 overflow-hidden">
-            <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto mb-12">
-                <div className="text-center">
+        <section className="py-20 w-full overflow-hidden">
+            <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto mb-12 w-full">
+                <div className="text-center w-full">
                     <span className="inline-block text-[11px] font-medium tracking-[0.35em] uppercase text-purple-300/70 mb-3 sm:mb-4">Our Stack</span>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">Technologies we love</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white break-words">Technologies we love</h2>
                 </div>
             </div>
             <TechCarousel speed={55} />
         </section>
 
-    {/* Services Preview */}
-    <ServicesPreview />
+        {/* Services Preview */}
+        <ServicesPreview />
 
-    {/* Testimonials */}
-    <Testimonials />
+        {/* Testimonials */}
+        <Testimonials />
 
-    {/* Final Call To Action */}
-    <FinalCTA />
+        {/* Final Call To Action */}
+        <FinalCTA />
+        </div>
         </>
     )
 }

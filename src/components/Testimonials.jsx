@@ -39,19 +39,19 @@ const clientLogos = [
 
 function Testimonials() {
   return (
-    <section id="testimonials" className="relative py-24 sm:py-28 lg:py-32 overflow-hidden">
+    <section id="testimonials" className="relative py-24 sm:py-28 lg:py-32 w-full overflow-hidden">
       {/* background layers */}
       <div className="absolute inset-0 -z-20 bg-[#121212]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_60%_40%,rgba(168,85,247,0.12),transparent_60%)]" />
-      <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative">
-        <div className="max-w-3xl">
+      <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative w-full">
+        <div className="max-w-3xl w-full">
           <span className="inline-block text-[11px] font-medium tracking-[0.35em] uppercase text-purple-300/70 mb-4">Testimonials</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight">Client feedback & logos</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight break-words">Client feedback & logos</h2>
           <p className="mt-4 text-neutral-400 text-sm sm:text-base max-w-xl leading-relaxed">A few words from teams who trusted us to design, build, and refine their products.</p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="mt-14 grid gap-6 sm:gap-8 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full">
           {testimonials.map((t, i) => (
             <figure
               key={i}

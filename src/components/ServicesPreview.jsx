@@ -86,19 +86,19 @@ const categories = [
 
 export default function ServicesPreview() {
   return (
-    <section id="services" className="relative py-20 sm:py-24 lg:py-32">
+    <section id="services" className="relative py-20 sm:py-24 lg:py-32 w-full overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-900/40 via-neutral-950 to-neutral-950" />
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:60px_60px]" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="max-w-3xl mb-14 sm:mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
+        <div className="max-w-3xl mb-14 sm:mb-20 w-full">
           <span className="inline-block text-[11px] font-medium tracking-[0.35em] uppercase text-purple-300/70 mb-5">Services</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight break-words">
             <span className="bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">What we deliver</span>
           </h2>
           <p className="mt-5 text-neutral-400 text-sm sm:text-base lg:text-lg leading-relaxed">A multi‑disciplinary stack designed to launch, grow, and sustain digital products. Start focused or plug in end‑to‑end.</p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full">
           {categories.map((cat, i) => (
             <div key={cat.title} className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-neutral-700/30 via-neutral-800/10 to-neutral-900/40 hover:from-purple-500/40 hover:via-neutral-800/10 hover:to-purple-900/20 transition-colors">
               <div className={`relative h-full rounded-2xl bg-neutral-950/70 backdrop-blur-sm p-5 sm:p-6 flex flex-col overflow-hidden`}>                
@@ -136,9 +136,9 @@ export default function ServicesPreview() {
           ))}
         </div>
 
-        <div className="mt-14 sm:mt-20 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+        <div className="mt-14 sm:mt-20 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 w-full">
           <p className="text-xs sm:text-sm text-neutral-500 max-w-xl">Need a tailored bundle? We can combine design, engineering, automation, and growth into a single engagement.</p>
-          <a href="#quote" className="inline-flex items-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-950 w-fit">
+          <a href="#quote" className="inline-flex items-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-950 w-fit flex-shrink-0">
             Start a project
             <svg className="ml-2 h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </a>

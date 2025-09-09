@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
@@ -6,15 +7,15 @@ function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 bg-[#171717]/90 backdrop-blur-xl border-b border-neutral-800/60 supports-[backdrop-filter]:bg-[#171717]/75">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8" aria-label="Main">
         <div className="flex h-16 sm:h-18 md:h-20 items-center justify-between">
-          <a href="#" className="flex items-center gap-2 shrink-0 group">
+          <Link to="/" className="flex items-center gap-2 shrink-0 group">
             <img src="/Logo-White1.png" alt="NextGen Labz Logo" className="h-8 sm:h-9 w-auto transition-transform group-hover:scale-[1.03]" />
-          </a>
+          </Link>
           <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] lg:text-sm font-medium text-neutral-300">
-            <li><a href="#" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">Home</a></li>
-            <li><a href="#about" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">About</a></li>
-            <li><a href="#contact" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">Contact</a></li>
+            <li><Link to="/" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">Home</Link></li>
+            <li><Link to="/about" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">About</Link></li>
+            <li><Link to="/contact" className="hover:text-white px-1 py-1 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-colors">Contact</Link></li>
             <li>
-              <a href="#quote" className="inline-flex items-center gap-1 rounded-full bg-purple-600 px-5 lg:px-6 py-2 text-[11px] lg:text-xs text-white shadow-sm shadow-purple-600/40 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition">Get Quote</a>
+              <Link to="/quote" className="inline-flex items-center gap-1 rounded-full bg-purple-600 px-5 lg:px-6 py-2 text-[11px] lg:text-xs text-white shadow-sm shadow-purple-600/40 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition">Get Quote</Link>
             </li>
           </ul>
           <button
@@ -29,15 +30,17 @@ function Navbar() {
             <svg className={`h-6 w-6 transition-transform duration-200 ${open ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </div>
-        <div id="mobile-nav" className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+      </nav>
+      <div id="mobile-nav" className={`md:hidden absolute inset-x-0 top-full bg-[#171717]/95 backdrop-blur-xl border-b border-neutral-800/60 overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
           <ul className="flex flex-col gap-1.5 pb-4 pt-2 text-[13px] font-medium text-neutral-300">
-            <li><a onClick={() => setOpen(false)} href="#" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">Home</a></li>
-            <li><a onClick={() => setOpen(false)} href="#about" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">About</a></li>
-            <li><a onClick={() => setOpen(false)} href="#contact" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">Contact</a></li>
-            <li><a onClick={() => setOpen(false)} href="#quote" className="mt-1 inline-flex items-center gap-1 rounded-full bg-purple-600 px-5 py-2 text-[11px] text-white shadow-sm shadow-purple-600/40 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/60 self-start">Get Quote</a></li>
+            <li><Link onClick={() => setOpen(false)} to="/" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">Home</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="/about" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">About</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="/contact" className="block rounded px-3 py-2 hover:bg-neutral-800/70 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">Contact</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="/quote" className="mt-1 inline-flex items-center gap-1 rounded-full bg-purple-600 px-5 py-2 text-[11px] text-white shadow-sm shadow-purple-600/40 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/60 self-start">Get Quote</Link></li>
           </ul>
         </div>
-      </nav>
+      </div>
     </header>
   )
 }
