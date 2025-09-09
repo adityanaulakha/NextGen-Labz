@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import SplitText from '../components/SplitText'
 import DarkVeil from '../components/DarkVeil'
+// Import PDF brochure
+import brochurePdf from '../assets/NextGen Labz Offerings.pdf'
 
 // Carousel image assets (only files that exist in /src/assets/carousel)
 import TechCarousel from '../components/TechCarousel';
@@ -92,8 +94,16 @@ function LandingPage() {
                             <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-10 py-5 text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
                                 Get a Quote
                             </a>
-                            <a href="#projects" className="inline-flex items-center justify-center rounded-full border-2 border-neutral-600 hover:border-purple-400 hover:text-white bg-black/30 backdrop-blur-sm px-10 py-5 text-base font-semibold text-neutral-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:-translate-y-1">
-                                View Projects
+                            <a 
+                                href={brochurePdf} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center rounded-full border-2 border-neutral-600 hover:border-purple-400 hover:text-white bg-black/30 backdrop-blur-sm px-10 py-5 text-base font-semibold text-neutral-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:-translate-y-1"
+                            >
+                                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Brochure
                             </a>
                         </div>
                     </div>

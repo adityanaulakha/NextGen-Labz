@@ -138,7 +138,7 @@ export default function ServicesPreview() {
 
         <div className="mt-14 sm:mt-20 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 w-full">
           <p className="text-xs sm:text-sm text-neutral-500 max-w-xl">Need a tailored bundle? We can combine design, engineering, automation, and growth into a single engagement.</p>
-          <a href="#quote" className="inline-flex items-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-950 w-fit flex-shrink-0">
+          <a href="quote" className="inline-flex items-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-950 w-fit flex-shrink-0">
             Start a project
             <svg className="ml-2 h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </a>
