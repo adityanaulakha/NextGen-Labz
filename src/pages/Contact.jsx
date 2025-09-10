@@ -77,14 +77,26 @@ const Contact = () => {
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
                       <p className="text-neutral-400 mb-3">Quick chat and instant responses</p>
-                      <a 
-                        href="https://wa.me/917454916178" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105"
-                      >
-                        💬 Chat Now
-                      </a>
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href="https://wa.me/917454916178"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105"
+                          aria-label="Chat on WhatsApp +91 7454916178"
+                        >
+                          💬 WhatsApp +91 7454916178
+                        </a>
+                        <a
+                          href="https://wa.me/917037500363"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105"
+                          aria-label="Chat on WhatsApp +91 7037500363"
+                        >
+                          💬 WhatsApp +91 7037500363
+                        </a>
+                      </div>
                     </div>
                   </div>
 
@@ -182,11 +194,17 @@ const Contact = () => {
                     Choose the best way to reach us and let's bring your ideas to life.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <a 
-                      href="tel:+917454916178" 
+                    <a
+                      href="tel:+917454916178"
                       className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-sm font-medium transition-colors"
                     >
-                      📞 Call Now
+                      📞 Call +91 7454916178
+                    </a>
+                    <a
+                      href="tel:+917037500363"
+                      className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-sm font-medium transition-colors"
+                    >
+                      📞 Call +91 7037500363
                     </a>
                     <a 
                       href="https://wa.me/917454916178" 

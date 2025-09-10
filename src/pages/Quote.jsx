@@ -376,41 +376,7 @@ const Quote = () => {
                 </div>
               </div>
 
-              <label htmlFor="description" className="block text-sm font-medium text-neutral-300 mb-3">
-                Tell us about your project *
-                <span className="text-xs text-neutral-500 ml-2">(The more details, the better quote we can provide)</span>
-              </label>
-              
-              <div className="relative">
-                <textarea
-                  id="description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  required
-                  rows={8}
-                  className="w-full px-4 py-4 bg-neutral-800/50 border border-neutral-600/30 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-vertical leading-relaxed"
-                  placeholder="Example: We need a modern e-commerce website for our organic food business. The site should have:
-
-• Product catalog with 200+ items and categories
-• Shopping cart and secure payment processing (Razorpay/Stripe)
-• User accounts with order history
-• Admin panel for inventory management
-• Mobile-responsive design with fast loading
-• SEO optimization for local search
-
-Target audience: Health-conscious consumers aged 25-45 in Mumbai and Delhi. We want a clean, trustworthy design similar to BigBasket but with a more premium feel. Must integrate with our existing inventory system (API available).
-
-Current website gets 50k monthly visitors. Goal is to achieve 20% conversion rate and handle 1000+ orders/month."
-                />
-                
-                {/* Character Counter */}
-                <div className="absolute bottom-3 right-3 text-xs text-neutral-500">
-                  {formData.description.length}/2000
-                </div>
-              </div>
-
-              {/* Quick Templates */}
+              {/* Quick Templates (moved above textarea) */}
               <div className="mt-6">
                 <p className="text-sm font-medium text-neutral-300 mb-3">🚀 Quick start templates:</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -456,6 +422,40 @@ Current website gets 50k monthly visitors. Goal is to achieve 20% conversion rat
                 <p className="text-xs text-neutral-500 mt-3">
                   💡 Tip: Choose a template and customize it with your specific details
                 </p>
+              </div>
+
+              <label htmlFor="description" className="block text-sm font-medium text-neutral-300 mb-3 mt-6">
+                Tell us about your project *
+                <span className="text-xs text-neutral-500 ml-2">(The more details, the better quote we can provide)</span>
+              </label>
+              
+              <div className="relative">
+                <textarea
+                  id="description"
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  required
+                  rows={8}
+                  className="w-full px-4 py-4 bg-neutral-800/50 border border-neutral-600/30 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-vertical leading-relaxed"
+                  placeholder="Example: We need a modern e-commerce website for our organic food business. The site should have:
+
+• Product catalog with 200+ items and categories
+• Shopping cart and secure payment processing (Razorpay/Stripe)
+• User accounts with order history
+• Admin panel for inventory management
+• Mobile-responsive design with fast loading
+• SEO optimization for local search
+
+Target audience: Health-conscious consumers aged 25-45 in Mumbai and Delhi. We want a clean, trustworthy design similar to BigBasket but with a more premium feel. Must integrate with our existing inventory system (API available).
+
+Current website gets 50k monthly visitors. Goal is to achieve 20% conversion rate and handle 1000+ orders/month."
+                />
+                
+                {/* Character Counter */}
+                <div className="absolute bottom-3 right-3 text-xs text-neutral-500">
+                  {formData.description.length}/2000
+                </div>
               </div>
             </div>
 
