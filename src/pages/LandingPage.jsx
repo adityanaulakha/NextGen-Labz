@@ -102,7 +102,7 @@ function LandingPage() {
                         </div>
                         
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mt-8 sm:mt-12">
-                            <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-7 sm:px-10 py-4 sm:py-5 text-sm sm:text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
+                            <a href="quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-7 sm:px-10 py-4 sm:py-5 text-sm sm:text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
                                 Get a Quote
                             </a>
                             <a 
