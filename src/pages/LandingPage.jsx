@@ -47,7 +47,7 @@ function LandingPage() {
                     <div className="space-y-6 sm:space-y-8">
                         <SplitText
                             text="Crafting Digital Experiences"
-                            className="text-[9vw] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full text-white drop-shadow-2xl px-1"
+                            className="text-[9vw] pb-5 xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.15] sm:leading-[1.08] lg:leading-[1.05] tracking-tight break-words w-full text-white drop-shadow-2xl px-1"
                             delay={80}
                             duration={0.55}
                             ease="power3.out"
