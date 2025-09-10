@@ -186,7 +186,7 @@ function LandingPage() {
                 </div>
                 <div className="mt-16 sm:mt-20 flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center justify-between w-full">
                     <p className="text-xs sm:text-sm text-neutral-500 max-w-xl">Not just a feature factory. We partner to shape, pressure test, and accelerate what you bring to market.</p>
-                    <a href="#quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-7 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#131313] self-start lg:self-auto flex-shrink-0">
+                    <a href="quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-6 sm:px-7 py-3 text-xs font-medium text-white shadow shadow-purple-700/30 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#131313] self-start lg:self-auto flex-shrink-0">
                         Start a conversation
                         <svg className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                     </a>
