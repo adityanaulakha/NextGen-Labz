@@ -1,9 +1,20 @@
 # NextGen Labz – Website (React + Vite)
 
-A fast, responsive, single‑page application built with React and Vite. It features an animated hero with SplitText, a GPU‑accelerated DarkVeil background (OGL), a premium tech carousel, services preview, testimonials, and themed pages (Home, About, Contact, Quote). Deployed on Vercel with SPA rewrites.
+NextGen Labz is a freelancing company providing a wide range of services:
+- Web Development
+- UI/UX & Design
+- Automation & AI
+- Digital Marketing
+- Digital Maintenance
+- Photography
+- Video Production
+- Consulting
+- DevOps
+
+This site is a fast, responsive single‑page application built with React and Vite. It features an animated hero with SplitText, a GPU‑accelerated DarkVeil background (OGL), a premium tech carousel, services preview, testimonials, and themed pages (Home, About, Contact, Quote). Deployed on Vercel with SPA rewrites.
 
 ## ✨ Highlights
-- Modern stack: React 18, Vite, React Router, Tailwind CSS 
+- Modern stack: React 18, Vite, React Router, Tailwind CSS
 - Animated hero:
   - SplitText component (GSAP-powered) with no-flash, smooth sequencing
   - DarkVeil background (OGL) with ResizeObserver for true responsiveness
@@ -41,27 +52,25 @@ vercel.json                 # SPA rewrites + headers
 ```
 
 ## 🚀 Getting Started
+Prerequisites: Node.js 18+ and npm
 
-### Prerequisites
-- Node.js 18+ and npm
-
-### Install
+Install
 ```bash
 npm install
 ```
 
-### Run (dev)
+Run (dev)
 ```bash
 npm run dev
 ```
 Open the printed local URL (e.g., http://localhost:5173).
 
-### Build
+Build
 ```bash
 npm run build
 ```
 
-### Preview production build
+Preview production build
 ```bash
 npm run preview
 ```
@@ -69,14 +78,14 @@ npm run preview
 ## 🔧 Configuration
 
 ### 1) Quote form → Google Sheet (SheetDB)
-The Quote page submits to SheetDB. For best practice, set the endpoint via an environment variable:
+Set the endpoint via an environment variable:
 
 Create `.env` (not committed):
 ```
 VITE_SHEETDB_QUOTE_API=https://sheetdb.io/api/v1/wxhkcc0bvqvn9
 ```
 
-In `src/pages/Quote.jsx`, the code should read:
+In `src/pages/Quote.jsx`:
 ```js
 const SHEETDB_API = import.meta.env.VITE_SHEETDB_QUOTE_API;
 ```
@@ -89,7 +98,7 @@ Timestamp | Name | Email | Company | Services | Budget | Timeline | Priority | D
 Newsletter: intentionally UI-only (no API calls).
 
 ### 2) Vercel SPA Rewrites (avoid 404 on deep links)
-`vercel.json` is included to forward all routes to `index.html`:
+`vercel.json` forwards all routes to `index.html`:
 ```json
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
@@ -104,26 +113,17 @@ Newsletter: intentionally UI-only (no API calls).
 ```
 
 ## 🧩 Key Components
-
-- DarkVeil.jsx
-  - Uses OGL for a soft, animated veil behind the hero.
-  - Responsive via ResizeObserver; respects DPR; tunable `resolutionScale`.
-- SplitText.jsx
-  - Splits into chars/words, animates with GSAP.
-  - No-flash protection (hidden until tween start), smooth stagger, optional responsive tuning.
-- TechCarousel.jsx
-  - requestAnimationFrame-based infinite scroll (no restart), pauses on hover, uses local assets.
-- Testimonials.jsx
-  - Exactly 3 cards, circular photos, aligned content, premium styling.
-- ServicesPreview.jsx
-  - Clean grid of offerings matching the Quote form “Services Needed”.
+- DarkVeil.jsx — OGL animated veil, responsive via ResizeObserver.
+- SplitText.jsx — Char/word splitting, no-flash reveal, smooth stagger.
+- TechCarousel.jsx — rAF seamless loop; local brand assets.
+- Testimonials.jsx — 3 cards, circular photos, aligned content.
+- ServicesPreview.jsx — Mirrors services offered (and used in Quote form).
 
 ## 📱 Responsiveness
-- Uses `h-[100svh]` for hero on mobile to handle browser UI.
-- Clamped typography (`text-[vw]` + responsive sizes).
-- Grids collapse gracefully (1 → 2 → 3/4).
-- Global `overflow-x-hidden` to avoid horizontal scroll.
-- DarkVeil scales to container; lighter effect on small screens.
+- `h-[100svh]` hero on mobile; clamped typography (`text-[vw]` + breakpoints).
+- Grids: 1 → 2 → 3/4 columns.
+- Global `overflow-x-hidden`.
+- DarkVeil scales to container with DPR-aware sizing.
 
 ## 🧭 Routes
 - `/`        → Landing Page
@@ -132,27 +132,25 @@ Newsletter: intentionally UI-only (no API calls).
 - `/quote`   → Get Quote (SheetDB submission)
 
 ## 🖼 Assets
-- Tech logos: `src/assets/carousel/…` (Next.js & Vercel on white tile backgrounds)
+- Tech logos: `src/assets/carousel/…`
 - Team photos: `src/assets/team/…`
-- Brochure PDF: imported in `LandingPage.jsx` and opened in a new tab
+- Brochure PDF: imported in `LandingPage.jsx` and opened in a new tab.
 
 ## 🔒 Accessibility & UX
-- Skip link and landmarks (`<main>`, aria labels)
-- Focus-visible styles, sufficient contrast
-- Reduced-motion guards in animations where relevant
-- Reserved space for secondary SplitText line to prevent layout shift
+- Skip link, landmarks, focus-visible styles.
+- Reduced-motion guards.
+- Reserved space to avoid layout shift in SplitText sequences.
 
 ## 🛠 Troubleshooting
+- 404 on deep links (Vercel): ensure `vercel.json` is deployed (see rewrites).
+- Assets not showing: verify import paths in `/src/assets`.
+- SheetDB: check `VITE_SHEETDB_QUOTE_API` and column headers.
 
-- Deep link 404 on Vercel:
-  - Ensure `vercel.json` is deployed (see rewrites above).
-- Assets not showing:
-  - Confirm import paths and file names under `/src/assets`.
-- SheetDB errors:
-  - Check `VITE_SHEETDB_QUOTE_API` value and that your Google Sheet columns match.
+## 🗺 Future Improvements
+- Section reveal timelines (GSAP/Framer Motion)
+- Responsive image `srcset`
+- CMS integration (Sanity)
+- Unit tests for form logic and utilities
 
-## 🗺 Future Improvements (optional)
-- Framer Motion or GSAP timelines for section reveals
-- Image optimization (responsive `srcset`)
-- CMS for content (e.g., Sanity)  
-- Unit tests for
+## 📄 License
+Proprietary – All rights reserved by NextGen Labz.
