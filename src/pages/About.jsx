@@ -1,10 +1,38 @@
 import React from 'react'
+import useSEO from '../hooks/useSEO'
 // Import team images
 import adityaImage from '../assets/team/aditya.jpg'
 import harshImage from '../assets/team/harsh.jpg'
 import vaishnavImage from '../assets/team/vaishnav.jpg'
 
 function About() {
+  useSEO({
+    title: 'About NextGen Labz | Founders, Vision & Values',
+    description: 'Learn about NextGen Labz – a freelance digital product studio founded in 2025. Meet the founders and discover our mission, journey, and values in design, engineering & innovation.',
+    keywords: 'About NextGen Labz, founders, digital product studio, mission, values, 2025 startup, design engineering team',
+    canonical: 'https://www.nextgenlabz.studio/about',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        'name': 'About NextGen Labz',
+        'url': 'https://www.nextgenlabz.studio/about',
+        'description': 'About NextGen Labz – founders, mission and core values of our freelance digital product studio.'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        'name': 'NextGen Labz',
+        'url': 'https://www.nextgenlabz.studio',
+        'foundingDate': '2025',
+        'founder': [
+          { '@type': 'Person', 'name': 'Aditya Naulakha' },
+          { '@type': 'Person', 'name': 'Vaishnav P Ramesh' },
+          { '@type': 'Person', 'name': 'Harshvardhan Gupta' }
+        ]
+      }
+    ]
+  })
   return (
     <div className="w-full min-h-screen overflow-hidden">
       {/* Hero Section */}
