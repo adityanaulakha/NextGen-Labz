@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import useSEO from '../hooks/useSEO'
 import SplitText from '../components/SplitText'
 import DarkVeil from '../components/DarkVeil'
 // Import PDF brochure
@@ -16,6 +17,48 @@ function LandingPage() {
         // Guard so we don't trigger state twice (which can cause re-renders that might rebuild splits)
         setSubVisible(prev => (prev ? prev : true))
     }, [])
+
+    // Inject page-specific SEO
+    useSEO({
+        title: 'NextGen Labz | Web Development, UI/UX, Automation & Growth Partner',
+        description: 'NextGen Labz is a freelance digital product studio helping startups & brands build fast web apps, modern UI/UX, automation workflows and sustainable growth systems.',
+        keywords: 'NextGen Labz, web development agency India, freelance product studio, UI UX design, automation, startup growth, React, Vite',
+        canonical: 'https://www.nextgenlabz.studio/',
+        image: 'https://www.nextgenlabz.studio/og-cover.png',
+        jsonLd: [
+            {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                'name': 'NextGen Labz',
+                'url': 'https://www.nextgenlabz.studio',
+                'potentialAction': {
+                    '@type': 'SearchAction',
+                    'target': 'https://www.nextgenlabz.studio/?q={search_term_string}',
+                    'query-input': 'required name=search_term_string'
+                }
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                'name': 'Core Services',
+                'itemListElement': [
+                    'Web Development',
+                    'UI / UX & Design',
+                    'Automation & AI',
+                    'Digital Marketing',
+                    'Digital Maintenance',
+                    'Photography',
+                    'Video Production',
+                    'Consulting',
+                    'DevOps'
+                ].map((service, index) => ({
+                    '@type': 'ListItem',
+                    'position': index + 1,
+                    'name': service
+                }))
+            }
+        ]
+    })
 
     return (
         <>

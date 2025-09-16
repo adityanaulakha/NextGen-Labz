@@ -1,6 +1,51 @@
 import React from 'react'
+import useSEO from '../hooks/useSEO'
 
 const Contact = () => {
+  useSEO({
+    title: 'Contact NextGen Labz | Start Your Project or Get a Consultation',
+    description: 'Contact NextGen Labz to discuss web development, UI/UX design, automation, marketing or product strategy. Fast response within 24 hours via call, email or WhatsApp.',
+    keywords: 'contact NextGen Labz, hire web developer, freelance product studio contact, WhatsApp web agency, consultation web design',
+    canonical: 'https://www.nextgenlabz.studio/contact',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        'name': 'Contact NextGen Labz',
+        'url': 'https://www.nextgenlabz.studio/contact'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'What services do you offer?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'We provide web development, UI/UX design, automation & AI workflows, digital marketing, maintenance, photography, video production, consulting and DevOps.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'How long does a typical project take?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Most standard websites take 2–6 weeks depending on scope. Complex apps can run longer with iterative releases.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Do you work with international clients?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes, we collaborate remotely with clients globally using async updates and scheduled calls.'
+            }
+          }
+        ]
+      }
+    ]
+  })
   return (
     <div className="bg-[#171717] text-white min-h-screen pt-24">
       {/* Skip to main content */}

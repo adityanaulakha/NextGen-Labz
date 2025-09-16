@@ -1,6 +1,33 @@
 import React, { useState } from 'react'
+import useSEO from '../hooks/useSEO'
 
 const Quote = () => {
+  useSEO({
+    title: 'Request a Project Quote | NextGen Labz Pricing & Project Estimation',
+    description: 'Get a custom quote for web development, UI/UX, automation, marketing or product builds. Transparent pricing, rapid response within 24 hours.',
+    keywords: 'project quote web development, NextGen Labz pricing, request estimate, freelance developer cost India, UI UX quote, automation project cost',
+    canonical: 'https://www.nextgenlabz.studio/quote',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Digital Product Design & Development Quote',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'NextGen Labz'
+      },
+      'areaServed': 'Global',
+      'offers': {
+        '@type': 'Offer',
+        'availability': 'https://schema.org/InStock',
+        'priceSpecification': {
+          '@type': 'PriceSpecification',
+          'priceCurrency': 'INR',
+          'price': '10000',
+          'description': 'Entry-level project starting range. Final pricing depends on scope.'
+        }
+      }
+    }
+  })
   const [formData, setFormData] = useState({
     name: '',
     email: '',
