@@ -137,14 +137,17 @@ function LandingPage() {
                         
                         <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 px-2">
                             <p className="text-base sm:text-xl lg:text-2xl leading-relaxed text-neutral-200 drop-shadow-md">
-                                We help <span className="text-purple-300 font-semibold">brands and startups</span> turn <span className="text-pink-300 font-semibold">ambitious ideas</span> into beautiful, performant products. From <span className="text-purple-400 font-semibold">rapid prototypes</span> to <span className="text-pink-400 font-semibold">full-scale platforms</span>, our multidisciplinary team blends strategy, design, and engineering to ship work that matters.
+                                We help <span className="text-purple-300 font-semibold">brands and startups</span> turn <span className="text-pink-300 font-semibold">ambitious ideas</span> into beautiful, performant products. From <span className="text-purple-400 font-semibold">rapid prototypes</span> to <span className="text-pink-400 font-semibold">full-scale platforms</span>, our multidisciplinary team blends strategy, design, and engineering to ship work that matters. <span className="hidden sm:inline">Explore our <a href="/services" className="text-purple-300 underline decoration-dotted hover:text-purple-200 transition-colors">services</a>.</span>
                             </p>
                             <p className="text-sm sm:text-lg text-neutral-400 drop-shadow-sm">
                                 Need a partner for your next launch or a fresh iteration of your existing product? Let's <span className="text-purple-300 font-medium">collaborate</span> and build something <span className="text-pink-300 font-medium">users love</span>.
                             </p>
+                            <p className="text-[11px] sm:text-xs text-neutral-500">
+                                Also referenced as <span className="text-neutral-300">NextGenLabz</span>, <span className="text-neutral-300">Next Gen Labz</span> or <span className="text-neutral-300">NextGen Labs</span>—all names refer to our same freelance digital product studio.
+                            </p>
                         </div>
                         
-                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mt-8 sm:mt-12">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center items-center mt-8 sm:mt-12">
                             <a href="quote" className="inline-flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-500 px-7 sm:px-10 py-4 sm:py-5 text-sm sm:text-base font-semibold text-white shadow-xl shadow-purple-700/40 transition-all duration-300 hover:shadow-purple-700/60 hover:scale-105 hover:-translate-y-1">
                                 Get a Quote
                             </a>

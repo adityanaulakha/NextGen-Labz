@@ -48,7 +48,7 @@ function About() {
               <span className="block bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">Digital Reality</span>
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-neutral-300 leading-relaxed max-w-4xl mb-8">
-              Born from the vision to bridge the gap between stunning design and robust engineering, NextGen Labz crafts digital experiences that don't just look good—they perform exceptionally.
+              Born from the vision to bridge the gap between stunning design and robust engineering, NextGen Labz (also known as NextGenLabz or Next Gen Labz) crafts digital experiences that don't just look good—they perform exceptionally and scale with business ambition.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/25">
@@ -238,7 +238,7 @@ function About() {
               </h2>
               <div className="prose prose-neutral prose-invert max-w-none space-y-6">
                 <p className="text-neutral-300 leading-relaxed text-lg">
-                  Founded in 2025, NextGen Labz was born from a bold vision: to revolutionize how businesses approach digital transformation in an increasingly connected world.
+                  Founded in 2025, NextGen Labz was born from a bold vision: to revolutionize how businesses approach digital transformation in an increasingly connected world. Discover what we offer across design, engineering, automation and growth on our <a href="/services" className="text-purple-300 underline decoration-dotted hover:text-purple-200 transition-colors">services page</a>.
                 </p>
                 <p className="text-neutral-300 leading-relaxed text-lg">
                   Our founding team recognized that the digital landscape was evolving rapidly, yet many agencies were still using outdated approaches. We set out to bridge that gap with fresh perspectives, cutting-edge technology, and innovative solutions.
